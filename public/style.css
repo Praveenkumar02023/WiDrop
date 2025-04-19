@@ -11,7 +11,7 @@ body {
   }
   
   .center-wrapper {
-    min-height: calc(100vh - 80px); /* Adjust height minus navbar */
+    min-height: calc(100vh - 80px); 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,9 +108,11 @@ h2 {
   }
 
   .logo {
+    text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
     color: #333;
+    margin-left: 2.3rem;
   }
 
   .nav-links {
@@ -126,10 +128,10 @@ h2 {
   }
 
   .nav-links a:hover {
-    color: #007BFF; /* subtle blue on hover */
+    color: #007BFF; 
   }
 
-  /* Responsive: stack on smaller screens if needed */
+  
   @media (max-width: 600px) {
     .nav-links {
       gap: 16px;
@@ -200,5 +202,111 @@ h2 {
     max-width: 100%;
     height: auto;
     border-radius: 12px;
+  }
+
+  .info-section {
+    background-color: #f9f9f9;
+    padding: 4rem 1.5rem;
+    text-align: center;
+  }
+  
+  .info-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: #222;
+  }
+  
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .info-box {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .info-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+    color: #007bff;
+  }
+  
+  .info-box h3 {
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 0.75rem;
+  }
+  
+  .info-box p {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+
+.site-footer {
+    background-color: #ffffff;
+    border-top: 1px solid #eee;
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+  
+  .footer-container {
+    max-width: 100%;
+    margin: 0 auto;
+    height: 30vh;
+  }
+  
+  .footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  .footer-nav {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-nav a:hover {
+    color: #007BFF;
+  }
+  
+  .footer-email {
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .footer-email a {
+    color: #007BFF;
+    text-decoration: none;
+  }
+  
+  .footer-email a:hover {
+    text-decoration: underline;
+  }
+  
+  .footer-copy {
+    font-size: 0.85rem;
+    color: #888;
   }
   
