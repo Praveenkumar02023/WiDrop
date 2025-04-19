@@ -130,13 +130,23 @@ h2 {
   .nav-links a:hover {
     color: #007BFF; 
   }
-
+  @media (min-width: 600px) {
+    .logo{
+        font-size: 1.5rem;
+    }
+    .nav-links a{
+        font-size: 1rem;
+    }
+  }
   
   @media (max-width: 600px) {
     .nav-links {
       gap: 16px;
       font-size: 14px;
     }
+    .nav-links a{
+        font-size: 0.7rem;
+      }
 
     header {
       padding: 12px 16px;
@@ -144,7 +154,8 @@ h2 {
   }
 
   .hero {
-    padding: 10.9rem 1rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
     background-color: #ffffff;
     border-bottom: 1px solid #eaeaea;
   }
@@ -158,25 +169,64 @@ h2 {
     justify-content: space-between;
     gap: 2rem;
   }
+
+  @media (min-width : 600px){
+    .hero-content{
+        margin-bottom: 7rem;
+        margin-top: 4rem;
+    }
+  }
+  @media (max-width :600px){
+    .hero-content{
+        margin-bottom: 3rem;
+        margin-top: 1rem;
+    }
+  }
   
   .hero-text {
     flex: 1 1 400px;
-    text-align: left;
   }
   
+  @media (max-width:600px){
+    .hero-text{
+        text-align: center;
+        padding: 1.2rem;
+    }
+  }
+
+  @media (min-width:600px){
+   .hero-text{
+    text-align: left;
+   }
+  }
+
   .hero-text h1 {
-    font-size: 3rem;
+    
     color: #222;
     margin-bottom: 1.2rem;
     font-weight: bold;
   }
-  
   .hero-text p {
-    font-size: 1rem;
     color: #555;
     margin-bottom: 2rem;
   }
   
+  @media (max-width: 600px){ 
+    .hero-text h1{
+        font-size: 1rem;
+    }
+    .hero-text p{
+        font-size: 0.8rem;
+    }
+  }
+  @media (min-width : 600px){
+    .hero-text h1{
+        font-size: 3rem;
+    }
+    .hero-text p{
+        font-size: 1rem;
+    }
+  }
   .hero-button {
     display: inline-block;
     padding: 0.75rem 1.5rem;
@@ -187,6 +237,7 @@ h2 {
     font-size: 1rem;
     transition: background-color 0.3s ease;
   }
+
   
   .hero-button:hover {
     background-color: #0056b3;
@@ -195,14 +246,31 @@ h2 {
   .hero-image {
     flex: 1 1 30rem;
     text-align: center;
-    margin-left: 4rem;
   }
   
   .hero-image img {
-    max-width: 100%;
-    height: auto;
     border-radius: 12px;
   }
+
+  @media (max-width: 600px){
+    .hero-image{
+        flex: 1 1 12rem;
+        margin-right: 2.5rem;
+    }
+    .hero-image img{
+        max-width: 250px;
+    }
+  }
+  @media (min-width: 600px){
+    .hero-image{
+        flex: 1 1 30rem;
+        margin-right: 4rem;
+    }
+    .hero-image img{
+        max-width: 550px;
+    }
+  }
+
 
   .info-section {
     background-color: #f9f9f9;
@@ -313,3 +381,79 @@ h2 {
   #message{
     margin-top: 2rem;
   }
+
+  .card-flex-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  
+  #qrBox {
+   
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #f9f9f9;
+  }
+
+  #qrImageParent{
+    display: flex;
+    justify-content: center;
+  }
+  
+  
+  
+  @media (min-width: 1024px) {
+    #qrBox {
+        margin-left: 5rem;
+        padding: 1.2rem;
+        text-align: center;
+      }
+  }
+  
+  @media (max-width: 600px) {
+    .logo{
+        font-size: 0.9rem;
+        margin-left: 0;
+    }
+    .center-wrapper {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 1rem;
+    }
+  
+    #card, #qrBox {
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+  
+    #card {
+      padding: 1.5rem;
+    }
+  
+    #qrBox {
+      padding: 1.2rem;
+      text-align: center;
+    }
+  
+    #qrImage {
+      max-width: 100%;
+      height: auto;
+    }
+  
+    .card-flex-container {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  
+    #qrImageParent {
+      justify-content: center;
+      display: flex;
+    }
+  }
+  

@@ -1,10 +1,44 @@
+
+window.addEventListener('DOMContentLoaded',async()=>{
+  const IP = document.getElementById("IP");
+  const qrImage = document.getElementById("qrImage");
+  const qrText = document.getElementById("qrText");
+
+  try {
+    const res = await fetch('/ip');
+    if(res.ok){
+      const result = await res.json();
+      IP.textContent = `Receiver's IP: ${result.ipAddress}`;
+    }else{
+      IP.textContent = "Not Found";
+    }
+  } catch (error) {
+    console.log('Error fetching IP :',error);
+  }
+
+  try {
+    const qrRes = await fetch('/qr-code');
+    const qrData = await qrRes.json();
+
+    if (qrData.qr) {
+      qrImage.src = qrData.qr;
+      qrImage.style.display = "block";
+      qrText.textContent = `Scan to open`;
+    } else {
+      qrText.textContent = "QR code not available.";
+    }
+  } catch (err) {
+    console.error("Error fetching QR code:", err);
+    qrText.textContent = "Error loading QR code.";
+  }
+});
+
 const fileInput = document.getElementById("fileInput");
 const fileName = document.getElementById("fileName");
 const selectButton = document.getElementById("selectBtn");
 const dropZone = document.getElementById("dropZone");
 const message = document.getElementById("message");
 const submit = document.getElementById("submit");
-
 
 let selectedFile = null;
 

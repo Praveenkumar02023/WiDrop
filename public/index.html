@@ -40,6 +40,7 @@
 
   <!--Main-->
   <main id="center" class="center-wrapper">
+   
     <div id="card">
       <h2>Upload File</h2>
 
@@ -67,9 +68,20 @@
         <p id="message"></p>
       </div>
       <div>
-        <p id="IP">Fetching IP...</p>
+        <strong>
+          <p id="IP">Fetching IP...</p>
+        </strong>
       </div>
     </div>
+
+    <div id="qrBox">
+      <h3>Scan to Access On Mobile</h3>
+      <p id="qrText">Loading QR...</p>
+      <div id="qrImageParent">
+        <img id="qrImage" alt="QR Code" style="display: none; max-width: 200px;" />
+      </div>
+    </div>
+
   </main>
 
   <!--Information-->

@@ -2,10 +2,13 @@ import express from "express"
 import multer from "multer";
 import basicAuth from "express-basic-auth"
 import os from 'os';
+import QRCode from 'qrcode';
+
 
 const app = express();
 
 const PORT = 3000;
+
 
 app.use(basicAuth({
     users: { 'Praveen': '1234',
@@ -40,27 +43,41 @@ app.post("/upload", upload.single("file"), (req, res) => {
     res.send("File uploaded successfully :)");
   });
 
-app.get('/ip',()=>{
+//IP Address
+function getLocalIp() {
   const networkInterfaces = os.networkInterfaces();
 
-  console.log(networkInterfaces);
-
-  let ipAddress = "not found";
-
-  for(const interfaceName in networkInterfaces){
-
-    for(const net of networkInterfaces[interfaceName]){
-
-      if(net.family === 'IPv4' && !net.internal){
-        ipAddress = net.address;
-        break;
+  for (const interfaceName in networkInterfaces) {
+    for (const net of networkInterfaces[interfaceName]) {
+      if (net.family === 'IPv4' && !net.internal) {
+        return net.address;
       }
-
     }
-
   }
 
-  res.json({ipAddress});
+  return null;
+}
+
+app.get('/ip',(req,res)=>{
+  const ipAddress = getLocalIp();
+  if (!ipAddress) return res.status(500).json({ error: "IP not found" });
+
+  console.log(`Your IP: ${ipAddress}`);
+  res.json({ ipAddress }); 
+});
+
+app.get('/qr-code', async (req, res) => {
+  const ip = getLocalIp();
+  if (!ip) return res.status(500).json({ error: "IP not found" });
+
+  const url = `http://${ip}:${PORT}`;
+
+  try {
+    const qr = await QRCode.toDataURL(url);
+    res.json({ qr });
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to generate QR code' });
+  }
 });
   
 app.listen(PORT,()=>{
