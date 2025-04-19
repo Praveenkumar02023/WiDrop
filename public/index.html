@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WiDrop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="card">
+    <h2>Upload File</h2>
+
+   
+    <div id="dropZone">
+      <p>Drag and drop your file here</p>
+
+     
+      <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+        <div id="fileSelect">
+      
+          <input type="file" name="file" id="fileInput" hidden />
+
+         
+          <button type="button" id="selectBtn">Choose file</button>
+
+          
+          <p id="fileName">No file chosen</p>
+        </div>
+
+       
+        <button id="submit" type="submit">Submit</button>
+      </form>
+    </div>
+
+    
+    <p id="message"></p>
+  </div>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
