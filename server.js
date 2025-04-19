@@ -1,6 +1,7 @@
 import express from "express"
 import multer from "multer";
 import basicAuth from "express-basic-auth"
+import os from 'os';
 
 const app = express();
 
@@ -38,6 +39,29 @@ app.post("/upload", upload.single("file"), (req, res) => {
     console.log("Uploaded:", req.file.originalname);
     res.send("File uploaded successfully :)");
   });
+
+app.get('/ip',()=>{
+  const networkInterfaces = os.networkInterfaces();
+
+  console.log(networkInterfaces);
+
+  let ipAddress = "not found";
+
+  for(const interfaceName in networkInterfaces){
+
+    for(const net of networkInterfaces[interfaceName]){
+
+      if(net.family === 'IPv4' && !net.internal){
+        ipAddress = net.address;
+        break;
+      }
+
+    }
+
+  }
+
+  res.json({ipAddress});
+});
   
 app.listen(PORT,()=>{
 

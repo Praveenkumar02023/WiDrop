@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WiDrop</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  
+  <!--Navbar-->
   <header>
     <div class="navbar">
       <div>
@@ -21,6 +23,8 @@
     </div>
   </header>
 
+
+  <!--Hero section-->
   <section id="Hero" class="hero">
     <div class="hero-content">
       <div class="hero-text">
@@ -34,88 +38,98 @@
     </div>
   </section>
 
-  <main  id="center" class="center-wrapper">
-  <div id="card">
-    <h2>Upload File</h2>
+  <!--Main-->
+  <main id="center" class="center-wrapper">
+    <div id="card">
+      <h2>Upload File</h2>
 
-   
-    <div id="dropZone">
-      <p>Drag and drop your file here</p>
 
-     
-      <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
-        <div id="fileSelect">
-      
-          <input type="file" name="file" id="fileInput" hidden />
+      <div id="dropZone">
+        <p>Drag and drop your file here</p>
 
-         
-          <button type="button" id="selectBtn">Choose file</button>
 
-          
-          <p id="fileName">No file chosen</p>
-        </div>
+        <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
+          <div id="fileSelect">
 
-       
-        <button id="submit" type="submit">Submit</button>
-      </form>
+            <input type="file" name="file" id="fileInput" hidden />
+
+
+            <button type="button" id="selectBtn">Choose file</button>
+
+
+            <p id="fileName">No file chosen</p>
+          </div>
+
+
+          <button id="submit" type="submit">Submit</button>
+
+        </form>
+        <p id="message"></p>
+      </div>
+      <div>
+        <p id="IP">Fetching IP...</p>
+      </div>
     </div>
   </main>
+
+  <!--Information-->
 
   <section id="info" class="info-section">
     <h2 class="info-title">Why Choose WiDrop?</h2>
     <div class="info-grid">
-  
+
       <div class="info-box">
         <span class="info-icon">📶</span>
         <h3>Wi-Fi Based</h3>
         <p>WiDrop works entirely over local Wi-Fi. No internet? No problem. It’s private and fast.</p>
       </div>
-  
+
       <div class="info-box">
         <span class="info-icon">⚡</span>
         <h3>Fast Transfers</h3>
         <p>Enjoy blazing fast file transfers between devices, without external servers slowing you down.</p>
       </div>
-  
+
       <div class="info-box">
         <span class="info-icon">🔐</span>
         <h3>Fully Secure</h3>
         <p>Your files never leave your local network. WiDrop ensures data stays safe and encrypted.</p>
       </div>
-  
+
       <div class="info-box">
         <span class="info-icon">💻</span>
         <h3>No Installation</h3>
         <p>Simply open your browser and start sharing. No apps or downloads required.</p>
       </div>
-  
+
       <div class="info-box">
         <span class="info-icon">🆓</span>
         <h3>Free to Use</h3>
         <p>WiDrop is open-source and completely free — no hidden fees or subscriptions.</p>
       </div>
-  
+
       <div class="info-box">
         <span class="info-icon">🌐</span>
         <h3>Works Anywhere</h3>
         <p>Compatible across platforms — Windows, macOS, Linux, Android. Share from any device!</p>
       </div>
-  
+
       <div class="info-box">
         <span class="info-icon">📁</span>
         <h3>Multiple File Support</h3>
         <p>Transfer all kinds of files — documents, images, videos, and more with ease.</p>
       </div>
-  
+
       <div class="info-box">
         <span class="info-icon">🎯</span>
         <h3>Real-Time Sharing</h3>
         <p>Instantly detect and connect to nearby devices for quick and seamless sharing.</p>
       </div>
-  
+
     </div>
   </section>
-  
+
+  <!--Footer-->
   <footer class="site-footer">
     <div class="footer-container">
       <p class="footer-logo">WiDrop</p>
@@ -133,13 +147,11 @@
       <p class="footer-copy">&copy; 2025 WiDrop. All rights reserved.</p>
     </div>
   </footer>
-  
 
-    
-    <p id="message"></p>
   </div>
 
 
   <script src="script.js"></script>
 </body>
+
 </html>
