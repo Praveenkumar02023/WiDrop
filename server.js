@@ -35,12 +35,19 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 
-app.post("/upload", upload.single("file"), (req, res) => {
-    if (!req.file) {
+app.post("/upload", upload.array("files",10), (req, res) => {
+    if (!req.files || req.files.length === 0) {
       return res.status(400).send("No file uploaded.");
     }
-    console.log("Uploaded:", req.file.originalname);
+
+    req.files.forEach(file => {
+      console.log("uploaded file",file.originalname);
+    })
+
+    console.log("Uploaded:", req.files.originalname);
+    if(req.files.length === 1)
     res.send("File uploaded successfully :)");
+    else res.send(`${req.files.length} files uploaded successfully :)`);
   });
 
 //IP Address
@@ -78,6 +85,7 @@ app.get('/qr-code', async (req, res) => {
   } catch (error) {
     res.status(500).json({ error: 'Failed to generate QR code' });
   }
+  
 });
   
 app.listen(PORT,()=>{

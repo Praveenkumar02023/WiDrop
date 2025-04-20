@@ -1,4 +1,3 @@
-
 window.addEventListener('DOMContentLoaded',async()=>{
   const IP = document.getElementById("IP");
   const qrImage = document.getElementById("qrImage");
@@ -75,25 +74,43 @@ dropZone.addEventListener('drop',(e)=>{
     fileInput.files = files;
   }
 })
+uploadForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
+  const formData = new FormData();
+  const files = fileInput.files;
 
-uploadForm.addEventListener('submit',async(e)=>{
+  if (!files || files.length === 0) {
+    message.textContent = "No files selected.";
+    message.style.color = "red";
+    // console.log("No files selected!"); 
+    return;
+  }
 
-e.preventDefault();
-const formData = new FormData(uploadForm);
+  for (let i = 0; i < files.length; i++) {
+    formData.append("files", files[i]); 
+  }
 
-try {
-  const res = await fetch('/upload',{
-    method : "POST",
-    body:formData
-  });
+  // console.log("Submitting form with files:", files);
 
-  const result = await res.text();
-  message.textContent = result;
-  message.style.color = res.ok? "green" : "red";
+  try {
+    const res = await fetch("/upload", {
+      method: "POST",
+      body: formData,
+    });
 
-} catch (error) {
-  message.textContent = "Error while sending file :(";
-  message.style.color = "red";
-}
+    const resultText = await res.text();
+
+    if (!res.ok) {
+      console.error("Server responded with an error:", resultText);
+      throw new Error(resultText);
+    }
+
+    message.textContent = resultText;
+    message.style.color = "green";
+  } catch (error) {
+    console.error("Upload failed:", error);
+    message.textContent = `Upload failed: ${error.message}`;
+    message.style.color = "red";
+  }
 });

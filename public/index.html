@@ -52,7 +52,7 @@
         <form id="uploadForm" action="/upload" method="POST" enctype="multipart/form-data">
           <div id="fileSelect">
 
-            <input type="file" name="file" id="fileInput" hidden />
+            <input type="file" name="files" id="fileInput" multiple  hidden/>
 
 
             <button type="button" id="selectBtn">Choose file</button>
@@ -72,6 +72,18 @@
           <p id="IP">Fetching IP...</p>
         </strong>
       </div>
+    </div>
+
+    <div id="instruction-box">
+        <h3>Follow these steps to send files from laptop/desktop</h3>   
+        
+        <div id="para">
+        <p>1.Open any browser in you laptop/desktop.</p>
+        <p>2.Type the given IP address above in the browser.</p>
+        <p>3.Enter the username and password to access the web page.</p>
+        <p>4.Select the file you want to send and click on submit button.</p>
+        </div>
+
     </div>
 
     <div id="qrBox">
